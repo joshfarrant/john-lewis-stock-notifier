@@ -41,11 +41,11 @@ function checkStock() {
     if (!error) {
       $ = cheerio.load(body);
       var stock = $('.mod-stock-availability').attr('data-jl-stock');
-      var logData = 'Moto 360 John Lewis stock: ' + stock;
+      var logData = itemName + ' John Lewis stock: ' + stock;
       logString(logData);
 
       if (stock > 0) {
-        var title = 'Moto360 is in stock!';
+        var title = itemName + ' is in stock!';
         var message = stock.toString() + " available - GO BUY ONE! " + url;
         sendPushover(title, message);
       }
@@ -86,6 +86,8 @@ function sendPushover(title, message) {
 
 var config = JSON.parse(fs.readFileSync('config.json'));
 var url = config['url'];
+var itemName = config['itemName'];
+var interval = config['interval'];
 var pushoverKeys = config['pushover'];
 var pushoverToken = pushoverKeys['token'];
 var pushoverUser = pushoverKeys['group'];
@@ -94,4 +96,4 @@ checkStock();
 
 setInterval(function (){
   checkStock();
-}, 300000);
+}, interval);

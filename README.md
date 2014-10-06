@@ -23,6 +23,8 @@ Credentials and configuration variables are stored in a *config.json* file in th
 ```
 {
     "url" : "ITEM_URL",
+    "itemName" : "ITEM_NAME",
+    "interval" : "STOCK_QUERY_INTERVAL_IN_MILLISECONDS"
     "pushover" : {
         "token" : "PUSHOVER_API_TOKEN",
         "group" : "PUSHOVER_GROUP_KEY"
