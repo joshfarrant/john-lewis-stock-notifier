@@ -46,7 +46,7 @@ function checkStock() {
 
       if (stock > 0) {
         var title = 'Moto360 is in stock!';
-        var message = stock.toString() + " available - GO BUY ONE YOU IDIOT!";
+        var message = stock.toString() + " available - GO BUY ONE! " + url;
         sendPushover(title, message);
       }
 
